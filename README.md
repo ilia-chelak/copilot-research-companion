@@ -27,7 +27,7 @@ cd /path/to/your/research
 git clone <this-repo-url> research-companion
 ```
 
-When you run Copilot from any parent directory containing `research-companion/`, it will automatically pick up the instructions from `.github/copilot-instructions.md`.
+When you run Copilot in the repo folder or from any parent directory containing `research-companion/`, it will automatically pick up the instructions from `.github/copilot-instructions.md`.
 
 Alternatively, symlink or copy the `.github/copilot-instructions.md` into your own project's `.github/` directory to activate the research companion in any repo.
 
