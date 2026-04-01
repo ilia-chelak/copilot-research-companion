@@ -4,7 +4,7 @@
 
 Most AI writing tools help you *write* papers. This helps you decide *which* papers to write.
 
-Adapted from [andrehuang/research-companion](https://github.com/andrehuang/research-companion) (a Claude Code plugin) for use with GitHub Copilot. Inspired by Nicholas Carlini's essay ["How to Win a Best Paper Award"](https://nicholas.carlini.com/writing/2026/how-to-win-a-best-paper-award.html).
+Adapted from [andrehuang/research-companion](https://github.com/andrehuang/research-companion) (kudos!) which is a Claude Code plugin. Since copilot can be used for free and has a student subscription, I believe it is more approachable than a Claude plugin. Inspired by Nicholas Carlini's essay ["How to Win a Best Paper Award"](https://nicholas.carlini.com/writing/2026/how-to-win-a-best-paper-award.html).
 
 ## The Problem
 
