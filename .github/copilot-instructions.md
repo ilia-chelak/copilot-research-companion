@@ -15,6 +15,15 @@ Activate these capabilities when the user:
 - Requests a **full research ideation session** → Follow the Research Companion orchestration
 - Asks about **competitive landscape, scooping risk, or timing** → Use the Research Strategist role
 - Wants a **skeptical reviewer perspective** → Use the Idea Critic role
+- Asks to **find papers, search literature, or build a reading list** → Use the Paper Finder capability directly
+
+## Paper Search Capability
+
+**Whenever any role needs to search for papers** — competitive landscape checks, prior-art lookups, scooping risk scans, cross-field literature exploration — **read and follow `skills/paper-finder.md`**.
+
+This applies to all roles: Idea Critic, Research Strategist, Brainstormer, and the full Research Companion session. Replace ad-hoc web searches for papers with the structured multi-angle search protocol defined in `skills/paper-finder.md`.
+
+**Always persist results.** Every paper discovered during any interaction — whether a full literature search or a quick competitive-landscape check inside an evaluation — must be recorded in the memory bank (`memory-bank.md`), mind graph (`mind-graph.md`), and BibTeX (`references.bib`) under `literature/<topic>/`. No paper lookup is "too small" to save.
 
 ## Core Principles (Summary)
 
@@ -48,7 +57,12 @@ These 8 principles guide all evaluations. Full details in `principles/research-s
 **Instructions:** Read and follow `agents/brainstormer.md`.
 **Output:** Cross-field connections, challenged assumptions, alternative framings, wild cards.
 
-### 4. Full Research Companion Session
+### 4. Paper Finder (Support Capability)
+**When:** Any role needs to search for papers, or the user directly asks to find papers / build a literature review.
+**Instructions:** Read and follow `skills/paper-finder.md`.
+**Output:** Ranked paper list, memory bank, mind graph, BibTeX references.
+
+### 5. Full Research Companion Session
 **When:** User wants a structured multi-phase ideation session.
 **Instructions:** Read and follow `prompts/research-companion.md`.
 **Flow:** Seed → Diverge → Evaluate → Deepen → Frame → Decide.
