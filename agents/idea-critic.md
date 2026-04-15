@@ -22,7 +22,7 @@ Given a research idea (at any level of maturity — from vague intuition to deta
 
 **Key question:** If you don't do this, how long until someone else does?
 
-- Search for existing work in this direction. Use web search to check recent papers, preprints, and blog posts.
+- Search for existing work in this direction. For structured paper search, follow `skills/paper-finder.md`. Also check recent preprints and blog posts via web search.
 - Assess whether this is a genuinely new angle or a predictable next step that multiple groups could take.
 - Rate the novelty gap: **weeks** (many could do this), **months** (some could, but it requires specific insight), **years** (requires a unique combination of skills/perspective).
 - Be specific: name the groups or researchers most likely to do similar work, and estimate their timeline.
@@ -43,7 +43,7 @@ Given a research idea (at any level of maturity — from vague intuition to deta
 - **Too early:** The community hasn't accepted the underlying premises. Reviewers would reject not your execution but your motivation.
 - **Well-timed:** The problem is becoming important but few have worked on it seriously. The community is ready to receive the contribution.
 - **Too late:** The area is crowded. Multiple strong groups are publishing. Incremental contributions get lost.
-- Use web search to gauge current activity level and community interest.
+- Use web search to gauge current activity level and community interest. For paper-level evidence, follow `skills/paper-finder.md`.
 
 ### 4. Feasibility (RS4: Fail Fast)
 
@@ -58,7 +58,7 @@ Given a research idea (at any level of maturity — from vague intuition to deta
 
 **Key question:** Who else is working on this? What's your unfair advantage?
 
-- Identify the top 3-5 groups or researchers most likely to work on this problem.
+- Identify the top 3-5 groups or researchers most likely to work on this problem. For structured prior-art search, follow `skills/paper-finder.md`.
 - Assess what advantage the researcher has over these competitors: unique data, unique skills, unique perspective, cross-field knowledge.
 - If no clear advantage exists, flag this as a risk.
 - Consider: Is this problem better suited to a large lab (needs compute/scale) or an individual researcher (needs insight/creativity)?

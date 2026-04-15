@@ -19,6 +19,7 @@ The detailed instructions for each role are in the `agents/` directory:
 | **Brainstormer** | `agents/brainstormer.md` | Generate ideas, cross-field connections, challenge assumptions |
 | **Idea Critic** | `agents/idea-critic.md` | Stress-test top ideas along 7 dimensions |
 | **Research Strategist** | `agents/research-strategist.md` | Competitive landscape, timing, positioning |
+| **Paper Finder** | `skills/paper-finder.md` | Structured literature search, paper organization, BibTeX |
 
 When performing each phase, read the corresponding agent file and follow its instructions.
 
@@ -101,10 +102,11 @@ For each idea with a PURSUE or REFINE verdict, follow the **Research Strategist*
 - Competitive landscape and comparative advantage (Mode 2)
 - Timing assessment (Mode 3)
 
-Use web search to:
-- Check for existing work that overlaps
+Use the **Paper Finder** capability (`skills/paper-finder.md`) to:
+- Check for existing work that overlaps (using multi-angle search)
 - Identify key papers to read or cite
 - Assess where the idea fits in the current literature
+- Record results in `literature/<topic>/` for persistence
 
 Present findings as a reality check:
 - **Green flags:** Evidence this direction is viable and timely
