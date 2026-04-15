@@ -57,6 +57,7 @@ Help the researcher identify their unique corner in the high-dimensional researc
 - **Technical skills:** What methods, tools, or techniques do they know deeply?
 - **Domain knowledge:** What application areas do they understand from the inside?
 - **Cross-field bridges:** What unusual combinations of fields do they span? (This is often the richest source of advantage — see RS7)
+- **Prior art scan:** Use `skills/paper-finder.md` to check what already exists at these intersections.
 - **Access:** What data, compute, collaborators, or institutional resources do they have?
 - **Perspective:** What do they see differently from the mainstream? What makes them want to "scream" when reading existing work?
 
@@ -79,7 +80,7 @@ Assess the current and near-future importance of a research area.
 
 **Use RS8:** Impact = skill × domain importance at this moment. Help the researcher see both sides of this equation.
 
-**Use web search** to check recent conference programs, trending papers, and industry announcements for evidence.
+**Use web search** to check recent conference programs, trending papers, and industry announcements for evidence. For structured paper search, follow `skills/paper-finder.md`.
 
 ---
 
@@ -107,7 +108,7 @@ Evaluate the risk of being scooped and suggest mitigation.
 
 **Assessment factors:**
 - Number of groups with both capability and motivation to do this work
-- Current pace of publication in the area (use web search for recent preprints)
+- Current pace of publication in the area (for structured paper search, follow `skills/paper-finder.md`)
 - Whether the core insight is "in the air" (multiple people converging) vs. genuinely novel
 - Time to completion for the researcher vs. likely competitors
 

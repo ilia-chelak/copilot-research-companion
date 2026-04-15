@@ -27,7 +27,7 @@ cd /path/to/your/research
 git clone <this-repo-url> research-companion
 ```
 
-When you run Copilot in the repo folder or from any parent directory containing `research-companion/`, it will automatically pick up the instructions from `.github/copilot-instructions.md`.
+When you run Copilot from any parent directory containing `research-companion/`, it will automatically pick up the instructions from `.github/copilot-instructions.md`.
 
 Alternatively, symlink or copy the `.github/copilot-instructions.md` into your own project's `.github/` directory to activate the research companion in any repo.
 
@@ -40,6 +40,12 @@ Alternatively, symlink or copy the `.github/copilot-instructions.md` into your o
 | **Idea Critic** | `agents/idea-critic.md` | Stress-tests research ideas along 7 dimensions: novelty, impact, timing, feasibility, competitive landscape, the nugget, and narrative potential. Returns a Pursue / Refine / Kill verdict. |
 | **Research Strategist** | `agents/research-strategist.md` | Project-level strategic thinking — triage (continue/pivot/kill), comparative advantage mapping, impact forecasting, opportunity cost analysis, and scooping risk assessment. |
 | **Brainstormer** | `agents/brainstormer.md` | Creative brainstormer with explicit focus on cross-field connections, "strategic ignorance" (challenging flawed assumptions the field follows uncritically), and the skeptical-reader test. |
+
+### Capabilities
+
+| Capability | File | What it does |
+|------------|------|-------------|
+| **Paper Finder** | `skills/paper-finder.md` | Structured literature search across Semantic Scholar, Google Scholar, and top venues. Multi-angle search (cross-domain synonyms, enabling mechanisms, application framing), citation-graph following, and persistent organization into memory bank, mind graph, and BibTeX. Adapted from [bchao1/paper-finder](https://github.com/bchao1/paper-finder). |
 
 ### Full Ideation Session
 
@@ -96,6 +102,15 @@ This launches a 6-phase guided session:
 I work on differential privacy. What ideas from other fields
 (cryptography, economics, ecology, etc.) could lead to novel approaches?
 ```
+
+### Search for papers on a topic
+
+```
+Find me recent papers on neural radiance fields for dynamic scenes.
+Focus on CVPR/ECCV 2024-2025.
+```
+
+The **Paper Finder** will run multi-angle searches across Semantic Scholar, Google Scholar, and venue-specific sources, then organize results into `literature/<topic>/` with a memory bank, mind graph, and BibTeX.
 
 ### Stress-test with a skeptical reviewer
 

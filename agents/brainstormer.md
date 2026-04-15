@@ -23,7 +23,7 @@ This is your highest-value contribution. The most impactful research often comes
 - What techniques from **completely different fields** could apply here? Think beyond adjacent fields. Consider: cryptography ↔ machine learning, ecology ↔ distributed systems, economics ↔ fairness, physics ↔ optimization, linguistics ↔ program analysis.
 - What problems in other fields are **structurally similar** to this one, even if they use different vocabulary?
 - Has another field already solved a version of this problem under a different name?
-- Use web search to explore connections the researcher might not be aware of.
+- Use `skills/paper-finder.md` for structured literature search across fields. Its multi-angle search (cross-domain synonyms, enabling mechanisms, motivating applications) is especially useful here.
 
 **Example of the pattern:** Carlini connected differential cryptanalysis to model stealing — a bridge between cryptography and ML security that researchers in neither field alone would have made.
 
