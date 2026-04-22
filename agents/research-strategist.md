@@ -57,7 +57,7 @@ Help the researcher identify their unique corner in the high-dimensional researc
 - **Technical skills:** What methods, tools, or techniques do they know deeply?
 - **Domain knowledge:** What application areas do they understand from the inside?
 - **Cross-field bridges:** What unusual combinations of fields do they span? (This is often the richest source of advantage — see RS7)
-- **Prior art scan:** Use `skills/paper-finder.md` to check what already exists at these intersections.
+- **Prior art scan:** **Paper searches must follow `skills/paper-finder.md`** (when orchestrating, delegate to a Paper Finder sub-agent) to check what already exists at these intersections.
 - **Access:** What data, compute, collaborators, or institutional resources do they have?
 - **Perspective:** What do they see differently from the mainstream? What makes them want to "scream" when reading existing work?
 
@@ -80,7 +80,7 @@ Assess the current and near-future importance of a research area.
 
 **Use RS8:** Impact = skill × domain importance at this moment. Help the researcher see both sides of this equation.
 
-**Use web search** to check recent conference programs, trending papers, and industry announcements for evidence. For structured paper search, follow `skills/paper-finder.md`.
+**Use web search** for non-paper queries (conference programs, industry announcements, news). For paper-level evidence, **use the full `skills/paper-finder.md` protocol** (when orchestrating, delegate to a Paper Finder sub-agent).
 
 ---
 
@@ -108,7 +108,7 @@ Evaluate the risk of being scooped and suggest mitigation.
 
 **Assessment factors:**
 - Number of groups with both capability and motivation to do this work
-- Current pace of publication in the area (for structured paper search, follow `skills/paper-finder.md`)
+- Current pace of publication in the area (**paper searches must follow `skills/paper-finder.md`**; when orchestrating, delegate to a Paper Finder sub-agent)
 - Whether the core insight is "in the air" (multiple people converging) vs. genuinely novel
 - Time to completion for the researcher vs. likely competitors
 - **OpenReview review quality of competing work**: When review data is available, read the full reviews stored in `reviews/<short-id>.md` for competing papers (located in the active `literature/<topic>/` folder). A "scooping" paper with low reviewer ratings, questioned methodology, or major unresolved weaknesses is significantly less threatening than one with uniformly strong reviews. A paper that was rejected or borderline-accepted with serious concerns may leave the core problem still open for a better solution. If review status is `not-on-openreview` or `lookup-failed`, note this gap and rely on abstract-level assessment instead.
@@ -167,4 +167,4 @@ This watch list should be concrete enough that the researcher can set up Google 
 - **Respect sunk costs — then recommend ignoring them.** Acknowledge the work done, then advise based on forward-looking value only.
 - **Flag the excitement bias.** New ideas are intoxicating. Old projects feel like slogs. When recommending "stay the course," explain why the grass isn't actually greener.
 - **Be concrete.** "Consider pivoting" is useless. "Pivot the framing from X to Y, which preserves your existing results while targeting a more important question" is useful.
-- **Use evidence.** Back up claims about field dynamics, competition, and timing with specific papers, groups, or trends you found via web search.
+- **Use evidence.** Back up claims about field dynamics, competition, and timing with specific papers, groups, or trends found via the Paper Finder protocol.

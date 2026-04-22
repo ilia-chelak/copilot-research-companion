@@ -15,15 +15,39 @@ Activate these capabilities when the user:
 - Requests a **full research ideation session** → Follow the Research Companion orchestration
 - Asks about **competitive landscape, scooping risk, or timing** → Use the Research Strategist role
 - Wants a **skeptical reviewer perspective** → Use the Idea Critic role
-- Asks to **find papers, search literature, or build a reading list** → Use the Paper Finder capability directly
+- Asks to **find papers, search literature, or build a reading list** → Launch a Paper Finder sub-agent via `task` (the sub-agent reads and follows `skills/paper-finder.md`)
 
 ## Paper Search Capability
 
-**Whenever any role needs to search for papers** — competitive landscape checks, prior-art lookups, scooping risk scans, cross-field literature exploration — **read and follow `skills/paper-finder.md`**.
+### MANDATORY: Delegate All Paper Searches to Sub-Agents
 
-This applies to all roles: Idea Critic, Research Strategist, Brainstormer, and the full Research Companion session. Replace ad-hoc web searches for papers with the structured multi-angle search protocol defined in `skills/paper-finder.md`.
+**The orchestrating agent MUST NOT search for papers itself.** Every paper search — whether a full literature review, a competitive-landscape check inside an evaluation, or a quick prior-art scan — **MUST be delegated to a sub-agent** via the `task` tool. This is non-negotiable.
 
-**Always persist results.** Every paper discovered during any interaction — whether a full literature search or a quick competitive-landscape check inside an evaluation — must be recorded in the memory bank (`memory-bank.md`), mind graph (`mind-graph.md`), and BibTeX (`references.bib`) under `literature/<topic>/`. No paper lookup is "too small" to save.
+**Why:** Ad-hoc `web_search` calls by the orchestrating agent systematically skip the paper-finder protocol: no OpenReview review lookups, no multi-angle search, no literature persistence. This causes ~70% of relevant papers to be missed and loses all discovered knowledge (no memory-bank, no mind-graph, no BibTeX).
+
+**What counts as a paper search (delegate ALL of these):**
+- Competitive landscape checks during idea evaluation
+- Prior-art lookups for novelty assessment
+- Scooping risk scans
+- Cross-field literature exploration
+- "Quick" checks for whether an idea has been done — these are never actually quick enough to justify skipping the protocol
+
+**The ONLY exception:** The orchestrating agent may use `web_search` for non-paper queries (e.g., checking a project page URL, looking up a specific researcher's affiliation, finding a GitHub repo). If the query is about finding or evaluating *papers*, it must be delegated.
+
+### Sub-Agent Prompt Requirements
+
+Every sub-agent prompt for paper search MUST include these instructions:
+
+1. **Read `skills/paper-finder.md` end-to-end** — the sub-agent must read and follow it before starting any search
+2. **Multi-angle search** — cross-domain synonyms, enabling mechanisms, motivating applications (the #1 cause of missed papers is skipping these angles)
+3. **OpenReview review lookup** for EVERY discovered paper via `scripts/openreview_lookup.py`
+4. **Persist results** to `memory-bank.md`, `mind-graph.md`, `references.bib` under `literature/<topic>/`
+5. **Follow citation graphs** for top-relevance papers
+6. **Do NOT call the Semantic Scholar API directly** — it is harshly rate-limited. Use `web_search` for paper discovery instead (e.g., `"topic" site:semanticscholar.org`, `"topic" arxiv 2025`)
+
+### Persistence Is Non-Negotiable
+
+Every paper discovered during any interaction — whether a full literature search or a quick competitive-landscape check inside an evaluation — must be recorded in the memory bank (`memory-bank.md`), mind graph (`mind-graph.md`), and BibTeX (`references.bib`) under `literature/<topic>/`. No paper lookup is "too small" to save. This is enforced by delegation — the sub-agent handles persistence as part of the paper-finder protocol.
 
 ## Core Principles (Summary)
 
@@ -59,7 +83,7 @@ These 8 principles guide all evaluations. Full details in `principles/research-s
 
 ### 4. Paper Finder (Support Capability)
 **When:** Any role needs to search for papers, or the user directly asks to find papers / build a literature review.
-**Instructions:** Read and follow `skills/paper-finder.md`.
+**Instructions:** Launch a sub-agent via `task` that reads and follows `skills/paper-finder.md`. The orchestrating agent must NOT run paper searches itself.
 **Output:** Ranked paper list, memory bank, mind graph, BibTeX references.
 
 ### 5. Full Research Companion Session
