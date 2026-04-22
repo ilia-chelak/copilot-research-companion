@@ -102,7 +102,7 @@ For each idea with a PURSUE or REFINE verdict, follow the **Research Strategist*
 - Competitive landscape and comparative advantage (Mode 2)
 - Timing assessment (Mode 3)
 
-Use the **Paper Finder** capability (`skills/paper-finder.md`) to:
+Launch a **Paper Finder sub-agent** via `task` (the sub-agent reads and follows `skills/paper-finder.md`) to:
 - Check for existing work that overlaps (using multi-angle search)
 - Identify key papers to read or cite
 - Assess where the idea fits in the current literature

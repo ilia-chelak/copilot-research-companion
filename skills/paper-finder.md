@@ -33,10 +33,10 @@ Use web search and web fetch for every search. Training knowledge alone misses r
 
 ### Search strategy
 
-Run 2–3 parallel searches per query:
+Run 2–3 parallel searches per query using `web_search`:
 
-1. **Semantic Scholar API** via web fetch: `https://api.semanticscholar.org/graph/v1/paper/search?query=<query>&limit=20&fields=title,authors,year,venue,abstract,externalIds,citationCount,url`
-2. **Web search** with queries like `<topic> paper <venue> <year>` — good for Google Scholar results
+1. **Semantic Scholar** via web search: `"<topic>" site:semanticscholar.org` or `"<topic>" semanticscholar`. Do NOT call the Semantic Scholar API directly — it is harshly rate-limited and will return 429 errors.
+2. **Google Scholar / arXiv** via web search: `<topic> paper <venue> <year>`, `<topic> arxiv <year>`
 3. **Venue-specific** when relevant: `<topic> CVPR 2025`, `<topic> site:openreview.net`
 4. **Follow citations** on Semantic Scholar for highly relevant papers
 
