@@ -39,7 +39,7 @@ The research companion includes a helper script (`scripts/openreview_lookup.py`)
 pip install -r requirements.txt
 ```
 
-No OpenReview account is needed — the script uses public guest access to fetch reviews for papers at ICLR, NeurIPS, ICML, AAAI, COLM, and ACL Rolling Review venues.
+No OpenReview account is needed — the script uses public guest access to fetch reviews across **all OpenReview venues** (ICLR, NeurIPS, ICML, AAAI, COLM, workshops, journals like TMLR, ACL Rolling Review, and more) in a single query.
 
 ## What's Inside
 
