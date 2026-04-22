@@ -111,6 +111,7 @@ Evaluate the risk of being scooped and suggest mitigation.
 - Current pace of publication in the area (for structured paper search, follow `skills/paper-finder.md`)
 - Whether the core insight is "in the air" (multiple people converging) vs. genuinely novel
 - Time to completion for the researcher vs. likely competitors
+- **OpenReview review quality of competing work**: When review data is available, read the full reviews stored in `reviews/<short-id>.md` for competing papers (located in the active `literature/<topic>/` folder). A "scooping" paper with low reviewer ratings, questioned methodology, or major unresolved weaknesses is significantly less threatening than one with uniformly strong reviews. A paper that was rejected or borderline-accepted with serious concerns may leave the core problem still open for a better solution. If review status is `not-on-openreview` or `lookup-failed`, note this gap and rely on abstract-level assessment instead.
 
 **Mitigation strategies:**
 - Work on problems others aren't pursuing (RS1 novelty test)

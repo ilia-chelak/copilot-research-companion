@@ -31,6 +31,16 @@ When you run Copilot from any parent directory containing `research-companion/`,
 
 Alternatively, symlink or copy the `.github/copilot-instructions.md` into your own project's `.github/` directory to activate the research companion in any repo.
 
+## Setup
+
+The research companion includes a helper script (`scripts/openreview_lookup.py`) that fetches peer reviews from [OpenReview](https://openreview.net/) to provide objective assessments of papers beyond their abstracts. This requires Python 3.9+ and the `requests` library:
+
+```bash
+pip install -r requirements.txt
+```
+
+No OpenReview account is needed — the script uses public guest access to fetch reviews for papers at ICLR, NeurIPS, ICML, AAAI, COLM, and ACL Rolling Review venues.
+
 ## What's Inside
 
 ### Roles
@@ -45,7 +55,7 @@ Alternatively, symlink or copy the `.github/copilot-instructions.md` into your o
 
 | Capability | File | What it does |
 |------------|------|-------------|
-| **Paper Finder** | `skills/paper-finder.md` | Structured literature search across Semantic Scholar, Google Scholar, and top venues. Multi-angle search (cross-domain synonyms, enabling mechanisms, application framing), citation-graph following, and persistent organization into memory bank, mind graph, and BibTeX. Adapted from [bchao1/paper-finder](https://github.com/bchao1/paper-finder). |
+| **Paper Finder** | `skills/paper-finder.md` | Structured literature search across Semantic Scholar, Google Scholar, and top venues. Multi-angle search (cross-domain synonyms, enabling mechanisms, application framing), citation-graph following, and persistent organization into memory bank, mind graph, and BibTeX. **Automatically looks up OpenReview peer reviews** for every discovered paper to get an objective second opinion beyond abstracts — surfaces real weaknesses, questionable claims, and reviewer concerns. Adapted from [bchao1/paper-finder](https://github.com/bchao1/paper-finder). |
 
 ### Full Ideation Session
 
@@ -110,7 +120,7 @@ Find me recent papers on neural radiance fields for dynamic scenes.
 Focus on CVPR/ECCV 2024-2025.
 ```
 
-The **Paper Finder** will run multi-angle searches across Semantic Scholar, Google Scholar, and venue-specific sources, then organize results into `literature/<topic>/` with a memory bank, mind graph, and BibTeX.
+The **Paper Finder** will run multi-angle searches across Semantic Scholar, Google Scholar, and venue-specific sources, then organize results into `literature/<topic>/` with a memory bank, mind graph, and BibTeX. For every discovered paper, it also **checks OpenReview for peer reviews** — surfacing reviewer ratings, strengths, weaknesses, and concerns that abstracts hide. Full reviews are saved to `literature/<topic>/reviews/`.
 
 ### Stress-test with a skeptical reviewer
 

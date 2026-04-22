@@ -26,6 +26,7 @@ Given a research idea (at any level of maturity — from vague intuition to deta
 - Assess whether this is a genuinely new angle or a predictable next step that multiple groups could take.
 - Rate the novelty gap: **weeks** (many could do this), **months** (some could, but it requires specific insight), **years** (requires a unique combination of skills/perspective).
 - Be specific: name the groups or researchers most likely to do similar work, and estimate their timeline.
+- **Check OpenReview reviews** on related prior work: reviewer weaknesses often reveal what the field considers unsolved or poorly addressed — these gaps are where novelty lives. A paper that claims to solve a problem but has reviewers questioning the solution leaves the door open.
 
 ### 2. Impact (RS2: The Conclusion-First Test)
 
@@ -62,6 +63,7 @@ Given a research idea (at any level of maturity — from vague intuition to deta
 - Assess what advantage the researcher has over these competitors: unique data, unique skills, unique perspective, cross-field knowledge.
 - If no clear advantage exists, flag this as a risk.
 - Consider: Is this problem better suited to a large lab (needs compute/scale) or an individual researcher (needs insight/creativity)?
+- **Use OpenReview reviews to calibrate competition strength**: A competing paper with strong abstract claims but harsh reviewer criticism (low ratings, questioned methodology, missing baselines) is weaker competition than it appears. Conversely, a paper with uniformly high reviewer praise and acceptance at a top venue is genuine, confirmed-strong competition. Read the full reviews in the active literature folder's `reviews/<short-id>.md` files when available; if review status is `not-on-openreview` or `lookup-failed`, note this gap.
 
 ### 6. The Nugget (RS3: The Nugget Test)
 
