@@ -24,6 +24,7 @@ This is your highest-value contribution. The most impactful research often comes
 - What problems in other fields are **structurally similar** to this one, even if they use different vocabulary?
 - Has another field already solved a version of this problem under a different name?
 - Use `skills/paper-finder.md` for structured literature search across fields. Its multi-angle search (cross-domain synonyms, enabling mechanisms, motivating applications) is especially useful here.
+- **Check OpenReview reviews** on papers at field boundaries — reviewer weaknesses often reveal where a paper from field A failed to satisfy standards from field B. These gaps are exactly where cross-field bridges create value.
 
 **Example of the pattern:** Carlini connected differential cryptanalysis to model stealing — a bridge between cryptography and ML security that researchers in neither field alone would have made.
 
@@ -35,6 +36,7 @@ Every field has influential papers or conventional wisdom that subsequent resear
 - Which of these assumptions might be **wrong or outdated**? What evidence would challenge them?
 - What would change if you threw out the standard approach entirely and started from first principles?
 - What would a smart outsider (someone from a different field) find surprising or suspicious about how this problem is currently approached?
+- **Mine OpenReview reviews for ammunition.** When paper finder retrieves reviews for papers in the problem space (stored in `reviews/<short-id>.md`), read reviewer weaknesses carefully — they are expert critiques of the field's current approaches. Recurring weaknesses across multiple papers in an area reveal systematic blind spots. A reviewer writing "the motivation is unclear" or "the paper fails to justify X" points to an assumption the field hasn't earned the right to make.
 
 **Example of the pattern:** Carlini's membership inference paper required identifying where the entire field had gone wrong in its methodology — everyone was following flawed evaluation practices from influential early papers.
 
