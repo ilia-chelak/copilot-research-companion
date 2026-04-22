@@ -94,13 +94,15 @@ python scripts/openreview_lookup.py "<exact paper title>" --venue <VENUE> --year
 Examples:
 ```bash
 python scripts/openreview_lookup.py "TTT3R: 3D Reconstruction as Test-Time Training" --venue ICLR --year 2026
-python scripts/openreview_lookup.py "Latent Radiance Fields with 3D-aware 2D Representations" --venue ICLR --year 2025
+python scripts/openreview_lookup.py "Latent Radiance Fields with 3D-aware 2D Representations"
 python scripts/openreview_lookup.py --forum-id aMs6FtNaY5
 ```
 
+The `--venue` and `--year` flags are optional. Without them, the script searches across **all OpenReview venues** (conferences, workshops, journals like TMLR) in a single query. When provided, they narrow the search for faster, more precise results.
+
 To save directly to a review file:
 ```bash
-python scripts/openreview_lookup.py "<title>" --venue ICLR --year 2026 --output reviews/<short-id>.md
+python scripts/openreview_lookup.py "<title>" --output reviews/<short-id>.md
 ```
 
 **Interpret exit codes:**
@@ -192,19 +194,19 @@ If review fields don't map cleanly to the sections above (different venue schema
 - **Lookup failed** (403, timeout, rate limit, blocked): Record `Review Status: lookup-failed` with a brief error note (e.g., "API returned 403"). This is different from "not on OpenReview" — the paper may have reviews but access failed. Retry on next search session if the paper comes up again.
 - **OpenReview page exists but no reviews**: Some papers are posted as submissions but reviews haven't been released yet. Record `Review Status: no-reviews-available`.
 - **Workshop papers**: May have lighter reviews. Still extract what's available.
-- **Venue coverage**: ICLR, NeurIPS, ICML, AAAI, and COLM consistently use OpenReview. ACL, EMNLP, and NAACL may have OpenReview threads via the ARR (ACL Rolling Review) pipeline — still attempt lookup. CVPR, ECCV, ICCV, and SIGGRAPH generally do not use OpenReview, but attempt lookup anyway since the web search will simply return no results.
+- **Venue coverage**: The script searches across **all OpenReview venues** automatically — conferences (ICLR, NeurIPS, ICML, AAAI, COLM), workshops, journals (TMLR, JMLR), and ACL Rolling Review. No venue specification needed. CVPR, ECCV, ICCV, and SIGGRAPH generally do not use OpenReview — the script will return "not found" for these, which is correct.
 
 ### Batch efficiency
 
-When looking up many papers, run the script sequentially for each paper (one call per title). Prioritize papers from venues known to use OpenReview (ICLR, NeurIPS, ICML, AAAI, COLM) first, since they're most likely to have results, but still attempt all papers.
+When looking up many papers, run the script sequentially for each paper (one call per title). The script searches all venues by default, so you don't need to know or guess which venue a paper is from.
 
 Use `--output` to write directly to review files:
 ```bash
 for each paper:
-    python scripts/openreview_lookup.py "<title>" --venue <V> --year <Y> --output reviews/<short-id>.md
+    python scripts/openreview_lookup.py "<title>" --output reviews/<short-id>.md
 ```
 
-The script handles all the API complexity (venue invitation formats, review field schemas, error handling). You just need to provide titles and interpret exit codes.
+Provide `--venue` and `--year` only when you know them — this makes the search faster and more precise.
 
 ---
 

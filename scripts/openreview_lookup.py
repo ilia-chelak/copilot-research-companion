@@ -82,22 +82,74 @@ def api_get(endpoint, params=None):
 
 
 def search_by_title(title, venue_hint=None, year_hint=None):
-    """Search for a paper by title across OpenReview venues."""
+    """Search for a paper by title across OpenReview.
+
+    When a venue hint is given, uses the precise invitation-based search.
+    Otherwise, uses the /notes/search full-text endpoint which covers ALL venues
+    (conferences, workshops, journals like TMLR, etc.) in a single query.
+    """
+    # If venue hint provided, use targeted invitation-based search
+    if venue_hint and venue_hint.upper() in VENUE_CONFIGS:
+        return _search_by_invitation(title, venue_hint, year_hint)
+
+    # Otherwise, use the full-text search endpoint (covers all venues)
+    return _search_fulltext(title)
+
+
+def _title_similarity(a, b):
+    """Simple word-overlap similarity between two titles."""
+    wa = set(a.strip().lower().split())
+    wb = set(b.strip().lower().split())
+    if not wa or not wb:
+        return 0.0
+    return len(wa & wb) / max(len(wa), len(wb))
+
+
+def _search_fulltext(title):
+    """Search across ALL OpenReview venues using the /notes/search endpoint."""
+    data, err = api_get("/notes/search", {"query": title, "limit": "10"})
+    if err:
+        return [], err == "forbidden"
+
+    found = []
+    for note in data.get("notes", []):
+        note_title = _extract_title(note)
+        if note_title and _title_similarity(title, note_title) > 0.4:
+            found.append(note)
+
+    # Deduplicate by forum ID
+    seen = set()
+    unique = []
+    for n in found:
+        fid = n.get("forum", n.get("id"))
+        if fid not in seen:
+            seen.add(fid)
+            unique.append(n)
+
+    return unique, False
+
+
+def _extract_title(note):
+    """Extract title string from a raw API note dict."""
+    content = note.get("content", {})
+    if not content:
+        return ""
+    title_field = content.get("title", {})
+    if isinstance(title_field, dict):
+        return title_field.get("value", "")
+    return str(title_field)
+
+
+def _search_by_invitation(title, venue_hint, year_hint):
+    """Search using venue-specific invitation patterns (more precise, fewer results)."""
     invitations_to_try = []
 
-    if venue_hint and venue_hint.upper() in VENUE_CONFIGS:
-        cfg = VENUE_CONFIGS[venue_hint.upper()]
-        years = [year_hint] if year_hint else cfg["years"]
-        for y in years:
-            vid = cfg["id_template"].format(year=y)
-            for suffix in cfg["submission_suffixes"]:
-                invitations_to_try.append(vid + suffix)
-    else:
-        for cfg in VENUE_CONFIGS.values():
-            for y in cfg["years"]:
-                vid = cfg["id_template"].format(year=y)
-                for suffix in cfg["submission_suffixes"]:
-                    invitations_to_try.append(vid + suffix)
+    cfg = VENUE_CONFIGS[venue_hint.upper()]
+    years = [year_hint] if year_hint else cfg["years"]
+    for y in years:
+        vid = cfg["id_template"].format(year=y)
+        for suffix in cfg["submission_suffixes"]:
+            invitations_to_try.append(vid + suffix)
 
     found = []
     api_errors = 0
